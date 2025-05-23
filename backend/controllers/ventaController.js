@@ -15,9 +15,9 @@ export const crearVentas = (req, res) => {
     if (!venta.id_cliente || !venta.id_id_producto || !venta.cantidad) {
         return res.status(400).json({error: 'Faltan campos requeridos'});
     }
-    addVenta(venta, (err, resultado_prod) => {
+    addVenta(venta, (err, resultado) => {
         if (err) return res.status(500).json({error: err.message});
-        res.json({mensaje_prod:'Venta agregada', id:resultado_prod.insertId});
+        res.json({mensaje_prod:'Venta agregada', id:resultado.insertId});
     });
 };
 
